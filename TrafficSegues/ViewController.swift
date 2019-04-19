@@ -16,10 +16,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    @IBAction func unwindToRed (unwindSegue: UIStoryboardSegue)
-    {
-}
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            segue.destination.navigationItem.title = textField.text
+  
+    @IBOutlet weak var segueSwitch: UISwitch!
+    
+    @IBAction func yellowButtonTapped(_ sender: Any) {
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Yellow", sender: nil)
+        }
+    }
+    
+    @IBAction func greenButtonTapped(_ sender: Any) {
+        if segueSwitch.isOn {
+            performSegue(withIdentifier: "Green", sender: nil)
+        }
     }
 }
